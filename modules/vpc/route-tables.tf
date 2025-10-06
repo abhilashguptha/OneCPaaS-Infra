@@ -8,7 +8,7 @@ resource "aws_route_table" "public" {
   }
 
   tags = {
-    Name = "${var.product}-${var.env}-${local.region_short}-public-rt"
+    Name = "${var.project}-${var.env}-${local.region_short}-public-rt"
     product     = var.product
     env = var.env
     owner       = "devops"
@@ -37,7 +37,7 @@ resource "aws_route_table" "private" {
   }
 
   tags = {
-    Name = "${var.product}-${var.env}-${local.region_short}-private-rt-${each.key}"
+    Name = "${var.project}-${var.env}-${local.region_short}-private-rt-${each.key}"
     product     = var.product
     env = var.env
     owner       = "devops"

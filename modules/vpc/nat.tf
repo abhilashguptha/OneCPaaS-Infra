@@ -4,7 +4,7 @@
 #   domain   = "vpc"
 
 #   tags = {
-#     Name        = "${var.product}-${var.env}-eip-nat-${each.key}"
+#     Name        = "${var.project}-${var.env}-eip-nat-${each.key}"
 #     product     = var.product
 #     env = var.env
 #     Terraform   = "true"
@@ -19,7 +19,7 @@
 #   subnet_id     = aws_subnet.public[each.key].id  # map to subnet in that AZ
 
 #   tags = {
-#     Name        = "${var.product}-${var.env}-nat-${each.key}"
+#     Name        = "${var.project}-${var.env}-nat-${each.key}"
 #     product     = var.product
 #     env = var.env
 #     Terraform   = "true"
@@ -32,7 +32,7 @@ resource "aws_eip" "nat" {
   domain   = "vpc"
 
   tags = {
-    Name        = "${var.product}-${var.env}-${local.region_short}-eip-${each.key}"
+    Name        = "${var.project}-${var.env}-${local.region_short}-eip-${each.key}"
     product     = var.product
     env = var.env
     owner       = "devops"
@@ -53,7 +53,7 @@ resource "aws_nat_gateway" "nat" {
   ][0]
 
   tags = {
-    Name        = "${var.product}-${var.env}-${local.region_short}-nat-${each.key}"
+    Name        = "${var.project}-${var.env}-${local.region_short}-nat-${each.key}"
     product     = var.product
     env = var.env
     owner       = "devops"
