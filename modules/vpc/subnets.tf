@@ -9,9 +9,11 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name        = "${var.project}-${var.env}-${local.region_short}-${each.key}"
-    Project     = var.project
-    Environment = var.env
+    Name        = "${var.product}-${var.env}-${local.region_short}-${each.key}"
+    product     = var.product
+    env = var.env
+    owner       = "devops"
+    function    = "networking"
     Terraform   = "true"
   }
 }
@@ -25,9 +27,11 @@ resource "aws_subnet" "private" {
   availability_zone = each.value.az
 
   tags = {
-    Name        = "${var.project}-${var.env}-${local.region_short}-${each.key}"
-    Project     = var.project
-    Environment = var.env
+    Name        = "${var.product}-${var.env}-${local.region_short}-${each.key}"
+    product     = var.product
+    env = var.env
+    owner       = "devops"
+    function    = "networking"
     Terraform   = "true"
   }
 }

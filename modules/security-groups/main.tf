@@ -10,9 +10,11 @@ resource "aws_security_group" "main" {
 
   tags = merge(
   {
-    Name        = "${var.project}-${var.env}-${local.region_short}-${each.value.name}-sg"
-    Project     = var.project
-    Environment = var.env
+    Name        = "${var.product}-${var.env}-${local.region_short}-${each.value.name}-sg"
+    product     = var.product
+    env = var.env
+    owner       = "devops"
+    function    = "networking"
     Terraform   = "true"
   },
   each.value.tags

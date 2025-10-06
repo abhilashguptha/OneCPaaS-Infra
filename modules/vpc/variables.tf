@@ -4,16 +4,16 @@ variable "aws_region" {
   default     = ""
 }
 
-variable "project" {
-  description = "Project name"
+variable "product" {
+  description = "product name"
   type        = string
-  default     = "One-CPaaS"
+  default     = "cpaas"
 }
 
 variable "env" {
-  description = "Environment (e.g., dev, prod)"
+  description = "env (e.g., dev, prod)"
   type        = string
-  default     = "Prod"
+  default     = "prod"
 }
 
 variable "vpc_cidr" {

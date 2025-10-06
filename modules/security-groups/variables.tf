@@ -1,6 +1,6 @@
 variable "aws_region" {
     type    = string
-    default = "ap-south-1"
+    default = ""
 }
   
 variable "vpc_id" {
@@ -9,15 +9,15 @@ variable "vpc_id" {
   default     = ""
 }
 
-variable "project" {
+variable "product" {
   type = string
-  default     = "One-CPaaS"
+  default     = "cpaas"
 }
 
 variable "env" {
-  description = "Environment (e.g., dev, prod)"
+  description = "env (e.g., dev, prod)"
   type        = string
-  default     = "Prod"
+  default     = "prod"
 }
 
 variable "security_groups" {

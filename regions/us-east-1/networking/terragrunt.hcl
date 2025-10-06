@@ -7,24 +7,24 @@ terraform {
 }
 
 inputs = {
-  aws_region = "ap-south-1"
-  vpc_cidr        = "10.0.0.0/16"
-  azs             = ["ap-south-1a", "ap-south-1b", "ap-south-1c"]
+  aws_region = "us-east-1"
+  vpc_cidr        = "172.17.0.0/16"
+  azs             = ["us-east-1a", "us-east-1b", "us-east-1c"]
   public_subnet_cidrs = {
-    "Public-subnet-1a" = { cidr = "10.0.1.0/24", az = "ap-south-1a" }
-    "Public-subnet-1b" = { cidr = "10.0.2.0/24", az = "ap-south-1b" }
-    "Public-subnet-1c" = { cidr = "10.0.3.0/24", az = "ap-south-1c" }
+    "Public-subnet-1a" = { cidr = "172.17.24.0/25", az = "us-east-1a" }
+    "Public-subnet-1b" = { cidr = "172.17.24.128/25", az = "us-east-1b" }
+    "Public-subnet-1c" = { cidr = "172.17.25.0/25", az = "us-east-1c" }
   }
 
   private_subnet_cidrs = {
-    "App-Private-Subnet-1a" = { cidr = "10.0.101.0/24", az = "ap-south-1a" }
-    "DB-Private-Subnet-1a"  = { cidr = "10.0.102.0/24", az = "ap-south-1a" }
+    "App-Private-Subnet-1a" = { cidr = "172.17.0.0/21", az = "us-east-1a" }
+    "DB-Private-Subnet-1a"  = { cidr = "172.17.26.0/24", az = "us-east-1a" }
 
-    "App-Private-Subnet-1b" = { cidr = "10.0.103.0/24", az = "ap-south-1b" }
-    "DB-Private-Subnet-1b"  = { cidr = "10.0.104.0/24", az = "ap-south-1b" }
+    "App-Private-Subnet-1b" = { cidr = "172.17.8.0/21", az = "us-east-1b" }
+    "DB-Private-Subnet-1b"  = { cidr = "172.17.27.0/24", az = "us-east-1b" }
 
-    "App-Private-Subnet-1c" = { cidr = "10.0.105.0/24", az = "ap-south-1c" }
-    "DB-Private-Subnet-1c"  = { cidr = "10.0.106.0/24", az = "ap-south-1c" }
+    "App-Private-Subnet-1c" = { cidr = "172.17.16.0/21", az = "us-east-1c" }
+    "DB-Private-Subnet-1c"  = { cidr = "172.17.28.0/24", az = "us-east-1c" }
   }
 }
 
