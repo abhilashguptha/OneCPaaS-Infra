@@ -19,9 +19,19 @@ inputs = {
       name        = "web"
       description = "Allow HTTP/HTTPS/SSH"
       ingress_rules = [
+<<<<<<< HEAD
         { from_port = 22, to_port = 22, protocol = "tcp", cidr_blocks = ["0.0.0.0/0"] },
         { from_port = 80, to_port = 80, protocol = "tcp", cidr_blocks = ["0.0.0.0/0"] },
         { from_port = 443, to_port = 443, protocol = "tcp", cidr_blocks = ["0.0.0.0/0"] }
+=======
+        { from_port = 22, to_port = 22, protocol = "tcp", cidr_blocks = ["172.17.0.0/16"] },
+        { from_port = 80, to_port = 80, protocol = "tcp", cidr_blocks = ["172.17.0.0/16"] },
+        { from_port = 443, to_port = 443, protocol = "tcp", cidr_blocks = ["172.17.0.0/16"] },
+        { from_port = 0, to_port = 65535, protocol = "tcp", cidr_blocks = ["10.222.0.0/16"] },
+        { from_port = 0, to_port = 65535, protocol = "tcp", cidr_blocks = ["10.200.0.0/16"] },
+        { from_port = 0, to_port = 65535, protocol = "tcp", cidr_blocks = ["10.2.0.0/16"] },
+        { from_port = 0, to_port = 65535, protocol = "tcp", cidr_blocks = ["10.6.0.0/16"] }
+>>>>>>> 5d7a818 (added alb)
       ]
       egress_rules = [
         { from_port = 0, to_port = 0, protocol = "-1", cidr_blocks = ["0.0.0.0/0"] }
