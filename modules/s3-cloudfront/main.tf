@@ -6,7 +6,7 @@ locals {
     product     = var.product
     env = var.env
     owner       = "devops"
-    function    = "networking"
+    function    = "storage"
   }
 }
 
