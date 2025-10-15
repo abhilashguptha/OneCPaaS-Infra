@@ -16,7 +16,7 @@ terraform {
 
 
 inputs = {
-  aws_region = "us-east-1"
+  aws_region = "eu-west-1"
   security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
-  subnet_ids         = ["subnet-0659f62e162c21478", "subnet-04e6b6a591da425cc", "subnet-0eda37b5985d12379"]
+  subnet_ids         = ["subnet-04f98f8ca319556a5", "subnet-0bf89d4ee7aa21e15", "subnet-01ecc843242c3794c"]
 }

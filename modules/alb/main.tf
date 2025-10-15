@@ -4,7 +4,7 @@ locals {
 
 
 resource "aws_lb" "this" {
-  name               = "${var.project}-${var.env}-${local.region_short}-internal-alb"
+  name               = "${var.project}-${var.env}-${local.region_short}-alb"
   internal           = true
   load_balancer_type = "application"
   security_groups    = var.security_group_ids
@@ -14,10 +14,11 @@ resource "aws_lb" "this" {
 
   tags = merge(
     {
-      Name        = "${var.project}-${var.env}-internal-alb"
-      Project     = var.project
-      Environment = var.env
-      Terraform   = "true"
+      Name        = "${var.project}-${var.env}-${local.region_short}-alb"
+        product     = var.product
+        env = var.env
+        owner       = "devops"
+        function    = "Networking"
     },
     var.tags
   )

@@ -10,7 +10,7 @@ resource "aws_security_group" "main" {
 
   tags = merge(
   {
-    Name        = "${var.product}-${var.env}-${local.region_short}-${each.value.name}-sg"
+    Name        = "${var.project}-${var.env}-${local.region_short}-${each.value.name}-sg"
     product     = var.product
     env = var.env
     owner       = "devops"

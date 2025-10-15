@@ -8,7 +8,7 @@ resource "aws_vpc" "main" {
   enable_dns_hostnames = true
 
   tags = {
-    Name        = "${var.product}-${var.env}-${local.region_short}-vpc"
+    Name        = "${var.project}-${var.env}-${local.region_short}-vpc"
     product     = var.product
     env = var.env
     owner       = "devops"

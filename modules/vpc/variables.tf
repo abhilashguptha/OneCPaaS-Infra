@@ -10,6 +10,11 @@ variable "product" {
   default     = "cpaas"
 }
 
+variable "project" {
+  description = "project name"
+  type        = string
+  default     = "One-CPaaS"
+}
 variable "env" {
   description = "env (e.g., dev, prod)"
   type        = string
