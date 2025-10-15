@@ -16,7 +16,7 @@ terraform {
 
 # Multiple instances defined here
 inputs = {
-  aws_region = "ap-south-1"
+  aws_region = "eu-west-11"
   instances = [
     {
       name              = "bastion-host"

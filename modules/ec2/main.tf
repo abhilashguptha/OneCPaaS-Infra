@@ -20,8 +20,10 @@ resource "aws_instance" "this" {
   tags = merge(
     {
     Name        = "${var.project}-${var.env}-${local.region_short}-${each.value.name}"
-    Project     = var.project
-    Environment = var.env
+    product     = var.product
+    env = var.env
+    owner       = "devops"
+    function    = "applications"
     Terraform   = "true"
     },
     each.value.tags
