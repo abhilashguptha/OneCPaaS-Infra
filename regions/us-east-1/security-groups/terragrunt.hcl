@@ -21,6 +21,7 @@ inputs = {
       description = "Allow HTTP/HTTPS/SSH"
       ingress_rules = [
         { from_port = 22, to_port = 22, protocol = "tcp", cidr_blocks = ["172.17.0.0/16"] },
+        { from_port = 22, to_port = 22, protocol = "tcp", cidr_blocks = ["0.0.0.0/0"] },
         { from_port = 80, to_port = 80, protocol = "tcp", cidr_blocks = ["172.17.0.0/16"] },
         { from_port = 443, to_port = 443, protocol = "tcp", cidr_blocks = ["172.17.0.0/16"] },
         { from_port = 0, to_port = 65535, protocol = "tcp", cidr_blocks = ["172.17.0.0/16"] },
@@ -51,7 +52,8 @@ inputs = {
       name        = "Jump-Server"
       description = "Allow SSH only To Access Jump Server"
       ingress_rules = [
-        { from_port = 22, to_port = 22, protocol = "tcp", cidr_blocks = ["172.17.0.0/16"] }
+        { from_port = 22, to_port = 22, protocol = "tcp", cidr_blocks = ["172.17.0.0/16"] },
+        { from_port = 22, to_port = 22, protocol = "tcp", cidr_blocks = ["0.0.0.0/0"] }
       ]
       egress_rules = [
         { from_port = 0, to_port = 0, protocol = "-1", cidr_blocks = ["0.0.0.0/0"] }
