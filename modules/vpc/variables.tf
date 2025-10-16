@@ -66,3 +66,14 @@ variable "private_subnet_name" {
   default     = ""
 }
 
+variable "tgw_id" {
+  type      = string
+  default   = null
+  description = "Transit Gateway ID to attach private routes to (optional)"
+}
+
+variable "tgw_cidrs" {
+  type      = list(string)
+  default   = []
+  description = "CIDR blocks to route via Transit Gateway (optional)"
+}

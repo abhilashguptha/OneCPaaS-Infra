@@ -7,6 +7,25 @@ resource "aws_route_table" "public" {
     gateway_id = aws_internet_gateway.igw.id
   }
 
+  route {
+    cidr_block     = "10.200.0.0/16"
+    transit_gateway_id = "tgw-067754bf3d2ad1b02"
+  }
+
+  route {
+    cidr_block     = "10.222.0.0/16"
+    transit_gateway_id = "tgw-067754bf3d2ad1b02"
+  }
+
+  route {
+    cidr_block     = "10.6.0.0/16"
+    transit_gateway_id = "tgw-067754bf3d2ad1b02"
+  }
+
+  route {
+    cidr_block     = "10.2.0.0/16"
+    transit_gateway_id = "tgw-067754bf3d2ad1b02"
+  }
   tags = {
     Name = "${var.project}-${var.env}-${local.region_short}-public-rt"
     product     = var.product
@@ -34,6 +53,14 @@ resource "aws_route_table" "private" {
   route {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = each.value.id
+  }
+
+  dynamic "route" {
+    for_each = var.tgw_id != null ? var.tgw_cidrs : []
+    content {
+      cidr_block         = route.value
+      transit_gateway_id = var.tgw_id
+    }
   }
 
   tags = {

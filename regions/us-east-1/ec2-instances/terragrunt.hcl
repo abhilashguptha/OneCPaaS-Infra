@@ -16,26 +16,56 @@ terraform {
 
 # Multiple instances defined here
 inputs = {
-  aws_region = "ap-south-1"
+  aws_region = "us-east-1"
   instances = [
     {
       name              = "bastion-host"
-      ami               = "ami-0f5d42f0ba3ba0328"
+      ami               = "ami-089f6a79b0e02648a"
       instance_type     = "t4g.micro"
       subnet_id         = dependency.networking.outputs.public_subnet_ids[0]
-      security_group_ids = [dependency.security_groups.outputs.security_group_ids["web"]]
-      key_name          = "jump-server-keypair"
-      root_volume_size  = 10
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["Jump-Server"]]
+      key_name          = "OneCPaaS-Jump-Server"
+      root_volume_size  = 20
       tags = { Role = "bastion" }
     },
     {
-      name              = "app1"
-      ami               = "ami-0f5d42f0ba3ba0328"
-      instance_type     = "t4g.micro"
+      name              = "RBM-Applications"
+      ami               = "ami-089f6a79b0e02648a"
+      instance_type     = "t4g.xlarge"
       subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
-      security_group_ids = [dependency.security_groups.outputs.security_group_ids["web"]]
-      key_name          = "private-instance"
-      root_volume_size  = 20
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-application-ec2"
+      root_volume_size  = 100
+      tags = { Role = "application" }
+    },
+    {
+      name              = "RBM-Dependencies"
+      ami               = "ami-089f6a79b0e02648a"
+      instance_type     = "t4g.xlarge"
+      subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-application-ec2"
+      root_volume_size  = 100
+      tags = { Role = "application" }
+    },
+    {
+      name              = "WBM-Dependencies"
+      ami               = "ami-089f6a79b0e02648a"
+      instance_type     = "t4g.xlarge"
+      subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-application-ec2"
+      root_volume_size  = 100
+      tags = { Role = "application" }
+    },
+    {
+      name              = "WBM-Applications"
+      ami               = "ami-089f6a79b0e02648a"
+      instance_type     = "t4g.xlarge"
+      subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-application-ec2"
+      root_volume_size  = 100
       tags = { Role = "application" }
     }
   ]

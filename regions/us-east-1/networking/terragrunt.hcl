@@ -26,6 +26,9 @@ inputs = {
     "App-Private-Subnet-1c" = { cidr = "172.17.16.0/21", az = "us-east-1c" }
     "DB-Private-Subnet-1c"  = { cidr = "172.17.28.0/24", az = "us-east-1c" }
   }
+
+  tgw_id     = "tgw-067754bf3d2ad1b02"
+  tgw_cidrs  = ["10.6.0.0/16", "10.2.0.0/16", "10.222.0.0/16", "10.200.0.0/16"]
 }
 
 

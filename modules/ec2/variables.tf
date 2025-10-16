@@ -27,6 +27,10 @@ variable "project" {
 variable "env" {
   description = "Environment (e.g., dev, prod)"
   type        = string
-  default     = "Prod"
+  default     = "prod"
 }
 
+variable "product" {
+  type = string
+  default     = "cpaas"
+}
