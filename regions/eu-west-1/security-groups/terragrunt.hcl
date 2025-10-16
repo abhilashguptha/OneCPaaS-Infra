@@ -46,7 +46,8 @@ inputs = {
       name        = "Jump-Server"
       description = "Allow SSH only To Access Jump Server"
       ingress_rules = [
-        { from_port = 22, to_port = 22, protocol = "tcp", cidr_blocks = ["172.31.0.0/16"] }
+        { from_port = 22, to_port = 22, protocol = "tcp", cidr_blocks = ["172.31.0.0/16"] },
+        { from_port = 22, to_port = 22, protocol = "tcp", cidr_blocks = ["0.0.0.0/0"] }
       ]
       egress_rules = [
         { from_port = 0, to_port = 0, protocol = "-1", cidr_blocks = ["0.0.0.0/0"] }
