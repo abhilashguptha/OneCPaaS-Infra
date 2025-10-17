@@ -37,4 +37,6 @@ variable "project" {
 }
 variable "env" {
   description = "env (e.g., dev, prod)"
+  type        = string
+  default     = "prod"
 }

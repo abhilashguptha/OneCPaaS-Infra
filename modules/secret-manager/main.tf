@@ -6,12 +6,11 @@ resource "aws_secretsmanager_secret" "this" {
   name        = var.secret_name
   description = var.secret_description
     tags = {
-    Name        = "${var.project}-${var.env}-${local.region_short}-secret"
+    Name        = "${var.project}-${var.env}-${local.region_short}-secret-key"
     product     = var.product
     env = var.env
     owner       = "devops"
-    function    = "networking"
-    Terraform   = "true"
+    function    = "Application"
   }
 }
 
