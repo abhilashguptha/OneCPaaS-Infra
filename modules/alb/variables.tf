@@ -1,3 +1,8 @@
+variable "name" {
+  description = "project name"
+  type        = string
+}
+
 variable "project" {
   description = "project name"
   type        = string
@@ -34,4 +39,10 @@ variable "tags" {
   type        = map(string)
   description = "Additional tags to apply"
   default     = {}
+}
+
+variable "alb_type" {
+  description = "Type of ALB: 'internal' or 'public'"
+  type        = string
+  default     = "internal"
 }

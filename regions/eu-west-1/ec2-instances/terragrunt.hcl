@@ -67,6 +67,26 @@ inputs = {
       key_name          = "OneCPaaS-prod-eu-application-ec2-key"
       root_volume_size  = 100
       tags = { Role = "application" }
+    },
+    {
+      name              = "Grafana-Dashboard"
+      ami               = "ami-0df2234174058e0c6"
+      instance_type     = "t4g.medium"
+      subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-prod-eu-application-ec2-key"
+      root_volume_size  = 50
+      tags = { Role = "application" }
+    },
+    {
+      name              = "Nginx"
+      ami               = "ami-0df2234174058e0c6"
+      instance_type     = "t4g.large"
+      subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-prod-eu-application-ec2-key"
+      root_volume_size  = 50
+      tags = { Role = "application" }
     }
   ]
 }

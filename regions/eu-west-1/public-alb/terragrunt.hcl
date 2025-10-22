@@ -17,6 +17,8 @@ terraform {
 
 inputs = {
   aws_region = "eu-west-1"
+  alb_type           = "public"
+  name = "one-cpaas-prod-public-eu-alb"
   security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
   subnet_ids         = ["subnet-04f98f8ca319556a5", "subnet-0bf89d4ee7aa21e15", "subnet-01ecc843242c3794c"]
 }
