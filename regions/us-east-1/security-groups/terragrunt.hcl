@@ -29,7 +29,8 @@ inputs = {
         { from_port = 0, to_port = 65535, protocol = "tcp", cidr_blocks = ["10.200.0.0/16"] },
         { from_port = 0, to_port = 65535, protocol = "tcp", cidr_blocks = ["10.2.0.0/16"] },
         { from_port = 0, to_port = 65535, protocol = "tcp", cidr_blocks = ["10.6.0.0/16"] },
-        { from_port = 0, to_port = 65535, protocol = "tcp", cidr_blocks = ["10.192.32.67/32"] }
+        { from_port = 0, to_port = 65535, protocol = "tcp", cidr_blocks = ["10.192.32.67/32"] },
+        { from_port = 0, to_port = 65535, protocol = "tcp", cidr_blocks = ["10.192.40.77/32"] }
       ]
       egress_rules = [
         { from_port = 0, to_port = 0, protocol = "-1", cidr_blocks = ["0.0.0.0/0"] }
