@@ -97,6 +97,66 @@ inputs = {
       key_name          = "OneCPaaS-application-ec2"
       root_volume_size  = 80
       tags = { Role = "application" }
+    },
+    {
+      name              = "WBS-RabbitMQ"
+      ami               = "ami-089f6a79b0e02648a"
+      instance_type     = "t4g.large"
+      subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-application-ec2"
+      root_volume_size  = 100
+      tags = { Role = "application" }
+    },
+    {
+      name              = "OneCPaaS-RabbitMQ"
+      ami               = "ami-089f6a79b0e02648a"
+      instance_type     = "t4g.large"
+      subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-application-ec2"
+      root_volume_size  = 100
+      tags = { Role = "application" }
+    },
+    {
+      name              = "OneCPaaS-Wrappers"
+      ami               = "ami-089f6a79b0e02648a"
+      instance_type     = "t4g.large"
+      subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-application-ec2"
+      root_volume_size  = 150
+      tags = { Role = "application" }
+    },
+    {
+      name              = "RCS-Kafka"
+      ami               = "ami-089f6a79b0e02648a"
+      instance_type     = "t4g.large"
+      subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-application-ec2"
+      root_volume_size  = 150
+      tags = { Role = "application" }
+    },
+    {
+      name              = "Viber-Wrappers"
+      ami               = "ami-089f6a79b0e02648a"
+      instance_type     = "t4g.large"
+      subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-application-ec2"
+      root_volume_size  = 100
+      tags = { Role = "application" }
+    },
+    {
+      name              = "Viber-Dependencies"
+      ami               = "ami-089f6a79b0e02648a"
+      instance_type     = "t4g.large"
+      subnet_id         = dependency.networking.outputs.private_subnet_ids[0]
+      security_group_ids = [dependency.security_groups.outputs.security_group_ids["application"]]
+      key_name          = "OneCPaaS-application-ec2"
+      root_volume_size  = 150
+      tags = { Role = "application" }
     }
   ]
 }

@@ -20,14 +20,13 @@ terraform {
 
 
 inputs = {
-  cluster_identifier  = "my-app-aurora"
+  cluster_identifier  = "onecpaas-prod-rds"
   engine_version      = "13.20"
-  instance_class      = "db.r5.large"
-  replica_count       = 2
+  instance_class      = "db.r6g.4xlarge"
+  replica_count       = 1
 
-  master_username     = "dbadmin"
-  # For production, read this from Secrets Manager or environment securely
-  master_password     = "StrongPassw0rd!"
+  master_username     = "onecpaas_prod_db"
+  master_password     = "OneCPaa$u$pr0d"
 
   # Subnets pulled from your VPC module
   #subnet_ids          = ["subnet-0088847a7f084d85e", "subnet-0f4586e357d24dc80", "subnet-0fa23e9516e50b845"]
@@ -37,7 +36,7 @@ inputs = {
   # Update "rds" to match your key in security_group_ids map if different
   security_group_ids  = [dependency.security_groups.outputs.security_group_ids["db"]]
 
-  backup_retention_period = 7
+  backup_retention_period = 3
   preferred_backup_window = "03:00-04:00"
 
 
@@ -46,7 +45,10 @@ inputs = {
 
 
   tags = {
-    Environment = "dev"
-    Project     = "example"
+    env = "prod"
+    product = "cpaas"
+    region = "us"
+    owner = "devops"
+    function = "database"
   }
 }

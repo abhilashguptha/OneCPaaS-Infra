@@ -23,8 +23,8 @@ resource "aws_rds_cluster" "this" {
   preferred_backup_window = var.preferred_backup_window
   db_subnet_group_name    = aws_db_subnet_group.this.name
   vpc_security_group_ids  = var.security_group_ids
-  skip_final_snapshot     = true
-  deletion_protection     = false
+  skip_final_snapshot     = false
+  deletion_protection     = true
   storage_type            = "aurora-iopt1"
 
   # Encryption
